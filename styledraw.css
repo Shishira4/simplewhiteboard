@@ -63,3 +63,23 @@ main {
 #red {
   background-color: red;
 }
+#brushes-palette {
+  margin-right: 30px;
+  width: 150px;
+  height: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 25px);
+  gap: 0 0.6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 2px 10px 0 gray;
+}
+.brushes, .fa-paint-brush {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}

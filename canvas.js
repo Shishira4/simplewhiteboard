@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+/*window.addEventListener("load", () => {
   const canvas1 = document.querySelector("#canvas");
   const ctx = canvas1.getContext("2d");
 
@@ -35,12 +35,35 @@ window.addEventListener("load", () => {
   canvas1.addEventListener("mousemove", draw);
   //mouse down
 
-  //mouse up
+  //mouse up*/
+
+window.addEventListener("load", () => {
+
+var canvas = new fabric.Canvas(document.getElementById('#canvas'))
+canvas.isDrawingMode = true;
+canvas.freeDrawingBrush.width = 5;
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
   // color change
   Array.from(colorClass).forEach((elem) => {
     elem.addEventListener("click", (e) => {
-      ctx.strokeStyle = e.target.id;
+      canvas.freeDrawingBrush.color= e.target.id;
     });
   });
+
+  let isDrawing = false;
+canvas.on('mouse:down', function({e}) {
+  isDrawing = true;
+  onMouseDown(e);
+}).on('mouse:up', function({e}) {
+  isDrawing = false;
+  onMouseUp(e);
+}).on('mouse:move', function({e}) {
+  if (isDrawing) {
+    const pointer = canvas.getPointer(e);
+    drawRealTime(e, pointer);
+  }
 });
+}
+//});
