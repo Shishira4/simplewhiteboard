@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-main {
+main  {
   display: flex;
 }
 
@@ -15,7 +15,7 @@ main {
 }
 
 #color-palette {
-  margin-right:10px;
+  margin-right:20px;
   width: 150px;
   height: 100px;
   display: grid;
@@ -76,7 +76,7 @@ main {
   border-radius: 3px;
   box-shadow: 0 2px 10px 0 gray;
 }
-.brushes, .fa-paint-brush {
+.brushes, i {
   display: inline-block;
   height: 25px;
   width: 25px;
