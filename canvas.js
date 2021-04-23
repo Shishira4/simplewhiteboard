@@ -2,6 +2,7 @@ console.log("I am in canvas.js");
 const canvas = new fabric.Canvas("canvas",{
   height: window.innerHeight,
   width: window.innerWidth,
+  
   //width = (window.innerWidth > 0) ? window.innerWidth : screen.width,
   //height = (window.innerHeight > 0) ? window.innerHeight : screen.height,
   
@@ -11,7 +12,12 @@ const canvas = new fabric.Canvas("canvas",{
 });
 
 
-
+//mouse over
+canvas.on('mouse:down',(e)=>{
+  console.log('mouse down');
+  draw()
+});
+canvas.requestRenderAll();
 
 
 /*window.addEventListener("load", () => {

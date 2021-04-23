@@ -76,11 +76,12 @@ main  {
   border-radius: 3px;
   box-shadow: 0 2px 10px 0 gray;
 }
-.brushes, i {
+.brushes, .btn {
   display: inline-block;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 40%;
   cursor: pointer;
   
 }
