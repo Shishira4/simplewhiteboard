@@ -2,7 +2,7 @@ console.log("I am in canvas.js");
 const canvas = new fabric.Canvas("canvas",{
   height: window.innerHeight,
   width: window.innerWidth,
-  selection:false
+  selection:false,
   
 });
 
@@ -34,10 +34,28 @@ const toggleMode =(mode) => {
   }
   console.log(mode);*/
 }
-const draw_black=(canvas) =>{
-  var brush = canvas.freeDrawingBrush;
-  brush.color = black
+const setcolor=(id) =>{
+  if(mousePressed && currentMode === modes.drawing)
+  {
+  if(document.getElementById('black').clicked == true)
+    {   
+        console.log("black");
+        canvas.freeDrawingBrush.color = '#000000'
+        canvas.renderAll()
+    } 
+  else if(document.getElementById('green').clicked == true)
+    {
+        console.log("green");
+        canvas.freeDrawingCursor.color = '#0037FF'
+        canvas.renderAll()
+    }
+      else if(document.getElementById('green').clicked == true)
+    {
+        canvas.freeDrawingBrush.color = '#02C00F'
+        canvas.renderAll()
 }
+  }
+};
 const setPanEvents = (canvas)=>{
 
   canvas.on('mouse:move', (event)=>{
@@ -56,26 +74,11 @@ const setPanEvents = (canvas)=>{
       console.log("draw mode on");
       canvas.setCursor('freeDrawingBrush');
       canvas.renderAll()
-      if(document.getElementById('black').clicked == true)
-      color() = (canvas)=>{
-        console.log("black");
-        canvas.freeDrawingBrush.color = '#000000'
-        canvas.renderAll()
-      }
-      else if(document.getElementById('green').clicked == true)
-      color() = (canvas)=>{
-        console.log("green");
-        canvas.freeDrawingBrush.color = '#0037FF'
-        canvas.renderAll()
-      }
-      else if(document.getElementById('green').clicked == true)
-      color() = (canvas)=>{
-        canvas.freeDrawingBrush.color = '#02C00F'
-        canvas.renderAll()
+      
       }
     }
   
-  })
+  )
   
   //mouse over
   canvas.on('mouse:down',(event)=>{
@@ -98,4 +101,4 @@ const modes = {
 }
 
 setPanEvents(canvas)
-color(canvas)
+setcolor(canvas)
