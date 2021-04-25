@@ -2,78 +2,100 @@ console.log("I am in canvas.js");
 const canvas = new fabric.Canvas("canvas",{
   height: window.innerHeight,
   width: window.innerWidth,
+  selection:false
   
-  //width = (window.innerWidth > 0) ? window.innerWidth : screen.width,
-  //height = (window.innerHeight > 0) ? window.innerHeight : screen.height,
-  
-  //setHeight(window,innerHeight){},
-  //setWidth(width,)
-  //setHeight(height);
 });
 
-
-//mouse over
-canvas.on('mouse:down',(e)=>{
-  console.log('mouse down');
-  draw()
-});
-canvas.requestRenderAll();
+/*canvas.freeDrawingBrush.color = getElementByClass("color").onchange = function(){
+  canvas.freeDrawingBrush.color = this.id; 
+};*/
 
 
-/*window.addEventListener("load", () => {
-  const canvas1 = document.querySelector("#canvas");
-  const ctx = canvas1.getContext("2d");
 
-  const colorClass = document.getElementsByClassName("color");
-  const brushClass = document.getElementsByClassName("fas");
-  //resize
-  canvas1.height = window.innerHeight;
-  canvas1.width = window.innerWidth;
+const toggleMode =(mode) => {
 
-  let painting = false;
-  function startPosition(e) {
-    painting = true;
-    draw(e);
-  }
-  function finishedPosition() {
-    painting = false;
-    ctx.beginPath();
-  }
-  function draw(e) {
-    if (!painting) return;
-    let coordX = e.clientX - canvas1.offsetLeft;
-    let coordY = e.clientY - canvas1.offsetTop;
-    ctx.lineWidth = 10;
-    // ctx.strokeStyle = "rgba(155,0,0,1)";
-    ctx.lineCap = "round";
-    ctx.lineTo(coordX, coordY);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(coordX, coordY);
-  }
-  function paint_brush(e)
+      currentMode = modes.drawing
+      
+      console.log("draw mode on -1");
+      canvas.renderAll()
+  /*if(mode === modes.drawing)
   {
-    ctx.lineWidth = 5;
-    draw(e);
+    if(currentMode ===modes.drawing)
+    {
+      currentMode = ''
+      canvas.isDrawingMode = false
+      console.log("draw mode on -1");
+      canvas.renderAll()
+    }
+    else
+    {
+      currentMode = modes.drawing
+    }
   }
-  //events
-  //mouse down
+  console.log(mode);*/
+}
+const draw_black=(canvas) =>{
+  var brush = canvas.freeDrawingBrush;
+  brush.color = black
+}
+const setPanEvents = (canvas)=>{
 
-  canvas1.addEventListener("mousedown", startPosition);
-    //mouse up
-  canvas1.addEventListener("mouseup", finishedPosition);
-  canvas1.addEventListener("mousemove", draw);
-  //brushes change
-  Array.from(brushClass).forEach((elem) => {
-    elem.addEventListener("click", (e) => {
-      ctx.lineWidth = 5;
-    });
-  });
+  canvas.on('mouse:move', (event)=>{
+    mousePressed=true
+    console.log('mouse move');
+    /*if(mousePressed)
+    {
+      canvas.setCursor('crosshair');
+    const mEvent = event.e;
+    const delta = new fabric.Point(mEvent.movementX, mEvent.movementY)
+    
+    }*/
+    if(mousePressed && currentMode === modes.drawing)
+    {
+      canvas.isDrawingMode = true
+      console.log("draw mode on");
+      canvas.setCursor('freeDrawingBrush');
+      canvas.renderAll()
+      if(document.getElementById('black').clicked == true)
+      color() = (canvas)=>{
+        console.log("black");
+        canvas.freeDrawingBrush.color = '#000000'
+        canvas.renderAll()
+      }
+      else if(document.getElementById('green').clicked == true)
+      color() = (canvas)=>{
+        console.log("green");
+        canvas.freeDrawingBrush.color = '#0037FF'
+        canvas.renderAll()
+      }
+      else if(document.getElementById('green').clicked == true)
+      color() = (canvas)=>{
+        canvas.freeDrawingBrush.color = '#02C00F'
+        canvas.renderAll()
+      }
+    }
+  
+  })
+  
+  //mouse over
+  canvas.on('mouse:down',(event)=>{
+    mousePressed = true;
+    canvas.setCursor('crosshair');
+    //draw()
+  })
+  canvas.on('mouse:up',(event)=>{
+    console.log('mouse down');
+    mousePressed = false;
+    //draw()
+  })
+  
+  canvas.requestRenderAll();
+}
+let mousePressed = false;
+let currentMode;
+const modes = {
+  drawing: 'drawing'
+}
 
-  // color change
-  Array.from(colorClass).forEach((elem) => {
-    elem.addEventListener("click", (e) => {
-      ctx.strokeStyle = e.target.id;
-    });
-  });
-});*/
+setPanEvents(canvas)
+color(canvas)

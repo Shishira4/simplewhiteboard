@@ -10,12 +10,12 @@
   <main>
     <div id="palette">
       <div id="color-palette">
-        <span id="black" class="color"></span>
-        <span id="blue" class="color"></span>
-        <span id="green" class="color"></span>
-        <span id="white" class="color"></span>
-        <span id="yellow" class="color"></span>
-        <span id="red" class="color"></span>
+        <button onclick = "color()" class = "color-btn"><span id="black" class="color"></span></button>
+        <button onclick = "color()" class = "color-btn"><span id="blue" class="color"></span></button>
+        <button onclick = "color()" class = "color-btn"><span id="green" class="color"></span></button>
+        <button onclick = "color()" class = "color-btn"><span id="white" class="color"></span></button>
+        <button onclick = "color()" class = "color-btn"><span id="yellow" class="color"></span></button>
+        <button onclick = "color()" class = "color-btn"><span id="red" class="color"></span></button>
       </div>
     </div> 
     <div id="brushes">
@@ -29,6 +29,11 @@
         
       </div>
     </div> 
+    <div id = "draw">
+    <div id = "drawmode">
+      <button onclick = "toggleMode(modes.drawing)" class = "draw_mode">Drawing mode</button>
+    </div>
+  </div>
   </main>
   <canvas id="canvas" > </canvas>
   <script src="./fabric.js"></script>
