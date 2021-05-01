@@ -6,8 +6,13 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/gfg');
 var db=mongoose.connection;
 db.on('error', console.log.bind(console, "connection error"));
-db.once('open', function(callback){
-    console.log("connection succeeded");
+db.once('open', function(callback)
+{
+    console.log("");
+    console.log("---------------------------------");
+    console.log("SERVER CONNECTED");
+    console.log("---------------------------------");
+
 })
   
 var app=express()
@@ -19,7 +24,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
   
-app.post('/sign_up', function(req,res){
+app.post("/sign_up", function(req,res){
     var fname = req.body.fname;
     var lname = req.body.lname;
 
@@ -39,10 +44,8 @@ app.post('/sign_up', function(req,res){
     }
 db.collection('details').insertOne(data,function(err, collection){
         if (err) throw err;
-        console.log("Record inserted Successfully");
-              
-    });
-          
+        console.log("Added to the database");          
+    });        
     return res.redirect('draw.html');
 })
   

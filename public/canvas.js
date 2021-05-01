@@ -6,33 +6,12 @@ const canvas = new fabric.Canvas("canvas",{
 });
 var brush = new fabric.PencilBrush();
 
-/*canvas.freeDrawingBrush.color = getElementByClass("color").onchange = function(){
-  canvas.freeDrawingBrush.color = this.id; 
-};*/
-
-
-
 const toggleMode =(mode) => {
 
       currentMode = modes.drawing
       
       console.log("draw mode on -1");
       canvas.renderAll()
-  /*if(mode === modes.drawing)
-  {
-    if(currentMode ===modes.drawing)
-    {
-      currentMode = ''
-      canvas.isDrawingMode = false
-      console.log("draw mode on -1");
-      canvas.renderAll()
-    }
-    else
-    {
-      currentMode = modes.drawing
-    }
-  }
-  console.log(mode);*/
 }
 const setcolor=(color) =>{
 
@@ -43,48 +22,18 @@ document.querySelectorAll('.color-btn')
 colorbtn.addEventListener('click', (target) => {
   console.log("clicked color pallette");
   //x = console.log(color)
-  
-  brush.color = this.color
+  brush.color = this.String(color);
+canvas.renderAll();
+})
 
 })
-document.getElementById("color").onchange = change;
-canvas.renderAll()
-})
 }
-/*const setcolor=(id) =>{
-  if(mousePressed && currentMode === modes.drawing)
-  {
-  if(document.getElementById('black').clicked == true)
-    {   
-        console.log("black");
-        canvas.freeDrawingBrush.color = '#000000'
-        canvas.renderAll()
-    } 
-  else if(document.getElementById('green').clicked == true)
-    {
-        console.log("green");
-        canvas.freeDrawingCursor.color = '#0037FF'
-        canvas.renderAll()
-    }
-      else if(document.getElementById('green').clicked == true)
-    {
-        canvas.freeDrawingBrush.color = '#02C00F'
-        canvas.renderAll()
-}
-  }
-};*/
+
 const setPanEvents = (canvas)=>{
 
   canvas.on('mouse:move', (event)=>{
     mousePressed=true
     console.log('mouse move');
-    /*if(mousePressed)
-    {
-      canvas.setCursor('crosshair');
-    const mEvent = event.e;
-    const delta = new fabric.Point(mEvent.movementX, mEvent.movementY)
-    
-    }*/
     if(mousePressed && currentMode === modes.drawing)
     {
       canvas.isDrawingMode = true
@@ -121,5 +70,13 @@ const color = {
   blue : '#0037FF',
   green : '02C00F'
 }
+document.querySelector('#Download').addEventListener('click', function() {
+  html2canvas(document.querySelector('canvas'), {
+    onrendered: function(canvas) {
+      // document.body.appendChild(canvas);
+      return Canvas2Image.saveAsPNG(canvas);
+    }
+  });
+});
 setPanEvents(canvas)
 setcolor(canvas)

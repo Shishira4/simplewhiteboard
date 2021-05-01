@@ -136,6 +136,8 @@ input[type=button]:hover {
             <label for="button"></label>
             <!--<input type="button" id="button" value = "Submit"><br><br><br>-->
             <input type="submit" onclick = "check()" id="submitDetails" name="submitDetails" placeholder="Submit" /><br>
+        </form>
+
            <script>
                function check()
                {
@@ -145,14 +147,17 @@ input[type=button]:hover {
 
                if(pword == pword1)
                {
-//console.log("successful");
-                   window.alert("Successful!");
+                    //console.log("successful");
+                     window.alert("Successful!");
+                     //window.location.href = "/draw.html";
                }
-               else
+               else{
                window.alert("Try again!");
-               document.location.reload();
-               clear();
+               console.log("reloading sign-in");
+               //window.location.href= "/sign-in.html"; 
+               //clear();
             }
+        }
             function clear()
             {
                 document.getElementById("pword").value = " ";
@@ -160,7 +165,9 @@ input[type=button]:hover {
 
             }
            </script>
-    
-        </form>
+           </div>
+        </div>
+           </body>
+           
+    </html>
         
-    </div>

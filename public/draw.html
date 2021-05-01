@@ -3,18 +3,22 @@
 <html>
 <head>
   <script src="https://kit.fontawesome.com/06b676ac8d.js" crossorigin="anonymous"></script>
+  <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="fabric.js"></script>
+  <script src="fabric.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styledraw.css" />
-  <link rel="stylesheet" href= "path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href= "/Users/apple/Desktop/html lesson/public/font-awesome.min.css">
 </head>
 <body>
   
   <main>
     <div id="palette">
       <div id="color-palette">
-        <button onclick = "setcolor(color.black)" class = "color-btn"><span id="black" class="color"></span></button>
-        <button onclick = "setcolor(color.blue)" class = "color-btn"><span id="blue" class="color"></span></button>
-        <button onclick = "setcolor(color.green)" class = "color-btn"><span id="green" class="color"></span></button>
+        <button onclick = "setcolor(color)" class = "color-btn"><span id="black" class="color"></span></button>
+        <button onclick = "setcolor(color)" class = "color-btn"><span id="blue" class="color"></span></button>
+        <button onclick = "setcolor(color)" class = "color-btn"><span id="green" class="color"></span></button>
         <button onclick = "setcolor(id)" class = "color-btn"><span id="white" class="color"></span></button>
         <button onclick = "setcolor(id)" class = "color-btn"><span id="yellow" class="color"></span></button>
         <button onclick = "setcolor(id)" class = "color-btn"><span id="red" class="color"></span></button>
@@ -29,18 +33,25 @@
         
       </div>
     </div> 
-    <div id = "draw">
+    <div class = "draw">
     <div id = "drawmode">
       <button onclick = "toggleMode(modes.drawing)" class = "draw_mode">Drawing mode</button>
     </div>
   </div>
+  <div class = "download" >
+    <div id = "download-btn">
+    <button class = "download-btn" id = "Download">Download</button>
+  </div>
+</div>
+  <div class="header" >
+    <div class="header-logo"><a href = "try.html">DORO </a></div>
+ 
+  </div>
   </main>
   <canvas id="canvas" > </canvas>
-  <script src="./fabric.js"></script>
-  <script src="fabric.min.js"></script>
+  
   
   <script src="canvas.js"></script>
-  <script src="ttps://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.0.0/fabric.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   
