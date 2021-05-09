@@ -16,19 +16,19 @@
   <main>
     <div id="palette">
       <div id="color-palette">
-        <button onclick = "setcolor(color)" class = "color-btn"><span id="black" class="color"></span></button>
-        <button onclick = "setcolor(color)" class = "color-btn"><span id="blue" class="color"></span></button>
-        <button onclick = "setcolor(color)" class = "color-btn"><span id="green" class="color"></span></button>
-        <button onclick = "setcolor(id)" class = "color-btn"><span id="white" class="color"></span></button>
-        <button onclick = "setcolor(id)" class = "color-btn"><span id="yellow" class="color"></span></button>
-        <button onclick = "setcolor(id)" class = "color-btn"><span id="red" class="color"></span></button>
+        <button onclick = "setcolor(color.black)" class = "color-btn"><span id="black" class="color"></span></button>
+        <button onclick = "setcolor(color.blue)" class = "color-btn"><span id="blue" class="color"></span></button>
+        <button onclick = "setcolor(color.green)" class = "color-btn"><span id="green" class="color"></span></button>
+        <button onclick = "setcolor(color.white)" class = "color-btn"><span id="white" class="color"></span></button>
+        <button onclick = "setcolor(color.yellow)" class = "color-btn"><span id="yellow" class="color"></span></button>
+        <button onclick = "setcolor(color.red)" class = "color-btn"><span id="red" class="color"></span></button>
       </div>
     </div> 
     <div id="brushes">
       <div id="brushes-palette">
-        <button class="btn"><i class="fas fa-paint-brush"></i></button>
-        <button class="btn"><i class="fas fa-pen"></i></button>   
-        <button class="btn"><i class="fas fa-eraser"></i></button>     
+        <button onclick = "changeBrush(pencilbrush)" class="btn"><i class="fas fa-paint-brush"></i></button>
+        <button onclick = "changeBrush(spraybrush)" class="btn"><i class="fas fa-pen"></i></button>   
+        <button onclick = "changeBrush(patternbrush)" class="btn"><i class="fas fa-eraser"></i></button>     
         
         
       </div>
